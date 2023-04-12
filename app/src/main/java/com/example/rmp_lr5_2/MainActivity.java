@@ -1,4 +1,4 @@
-package com.example.rmp_lr6_2;
+package com.example.rmp_lr5_2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
