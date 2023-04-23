@@ -30,6 +30,7 @@ public class SecondActivity extends AppCompatActivity {
     static final String ENERGY = "ENERGY";
     static final String HEALTH = "HEALTH";
     static final String MESSAGE = "MESSAGE";
+    static final String WINNER = "WINNER";
     String message;
     String[] playerOneAction = null;
     String[] playerTwoAction = null;
@@ -204,6 +205,30 @@ public class SecondActivity extends AppCompatActivity {
         buttonActionPlayerOne.setEnabled(true);
         buttonActionPlayerTwo = findViewById(R.id.actionPlayerTwo);
         buttonActionPlayerTwo.setEnabled(true);
+        if (playerOneHp <= 0 && playerTwoHp <= 0) {
+            Intent intent = new Intent
+                    (SecondActivity.this, MainActivity.class);
+            String winner = "Ничья!";
+            intent.putExtra(WINNER, winner);
+            setResult(RESULT_OK, intent);
+            onBackPressed();
+        }
+        if (playerOneHp <= 0) {
+            Intent intent = new Intent
+                    (SecondActivity.this, MainActivity.class);
+            String winner = "Игрок 2 победил!";
+            intent.putExtra(WINNER, winner);
+            setResult(RESULT_OK, intent);
+            onBackPressed();
+        }
+        if (playerTwoHp <= 0) {
+            Intent intent = new Intent
+                    (SecondActivity.this, MainActivity.class);
+            String winner = "Игрок 1 победил!";
+            intent.putExtra(WINNER, winner);
+            setResult(RESULT_OK, intent);
+            onBackPressed();
+        }
     }
 
     public void parseMessage(String message) {

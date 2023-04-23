@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     if (result.getResultCode() == RESULT_OK) {
                         Intent intent = result.getData();
                         String accessMessage =
-                                intent.getStringExtra(ACCESS_MESSAGE);
+                                intent.getStringExtra(SecondActivity.WINNER);
                         textView.setText(accessMessage);
                     } else
                         textView.setText("Ошибка доступа");
